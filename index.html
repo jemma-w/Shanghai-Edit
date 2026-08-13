@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>J's Shanghai Edit</title>
+<meta name="description" content="A personal, shareable guide to favorite restaurants and bars in Shanghai." />
+<style>
+  :root {
+    --paper: #f7f6f2;
+    --ink: #121212;
+    --ink-soft: #6e6a63;
+    --line: #e2dfd7;
+    --accent: #e31b23;
+    --pill-bg: #efece4;
+    --card-bg: #ffffff;
+    --shadow: rgba(18, 18, 18, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.45;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .editorial {
+    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+    font-style: italic;
+  }
+
+  a { color: inherit; }
+
+  /* ---------- layout wrapper ---------- */
+  .page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 18px 64px;
+    position: relative;
+  }
+
+  /* ---------- header ---------- */
+  header {
+    padding: 40px 4px 22px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 20px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0 0 10px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .tagline {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* ---------- filter bar ---------- */
+  .filter-bar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: var(--paper);
+    padding: 14px 4px 16px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 18px;
+  }
+
+  .search-box {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 16px;
+    border: 1.5px solid var(--ink);
+    border-radius: 3px;
+    background: var(--card-bg);
+    color: var(--ink);
+    margin-bottom: 14px;
+    font-family: inherit;
+  }
+
+  .search-box::placeholder {
+    color: #a8a49a;
+  }
+
+  .search-box:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent);
+  }
+
+  .filter-group {
+    margin-bottom: 14px;
+  }
+
+  .filter-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .filter-group-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  /* Type / Cuisine pills - soft rounded chip, matches reference style */
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 11px 20px;
+    border-radius: 999px;
+    background: var(--card-bg);
+    border: 1.5px solid var(--line);
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 1px 2px var(--shadow);
+    transition: transform 0.08s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .pill:active {
+    transform: scale(0.96);
+  }
+
+  .pill.active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+
+  /* ---------- place list ---------- */
+  .list-meta {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 4px 4px 12px;
+  }
+
+  .place-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .place-card {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 18px 18px 16px;
+    box-shadow: 0 1px 2px var(--shadow);
+  }
+
+  .place-name {
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin: 0 0 8px;
+  }
+
+  .place-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    background: var(--pill-bg);
+    color: var(--ink-soft);
+  }
+
+  .tag.tag-vibe {
+    color: var(--ink);
+  }
+
+  .place-note {
+    font-size: 15.5px;
+    color: var(--ink);
+    margin: 0 0 14px;
+    line-height: 1.5;
+  }
+
+  .place-links {
+    display: flex;
+    gap: 10px;
+  }
+
+  .link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    border-radius: 3px;
+    border: 1.5px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    min-height: 40px;
+  }
+
+  .link-btn:active {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .pill:focus-visible,
+  .link-btn:focus-visible,
+  .search-box:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 48px 16px;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 11.5px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 36px;
+    opacity: 0.8;
+  }
+
+  /* ---------- desktop niceties ---------- */
+  @media (min-width: 640px) {
+    h1 { font-size: 3rem; }
+    .place-card { padding: 22px 24px 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pill { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header>
+    <span class="eyebrow">Places I Love, for Lovely People</span>
+    <h1 id="site-title">J's Shanghai Edit</h1>
+    <p class="tagline editorial">Food is the Chinese love language.</p>
+  </header>
+
+  <div class="filter-bar">
+    <input type="text" id="search-input" class="search-box" placeholder="Search by name or note..." />
+
+    <div class="filter-group">
+      <span class="filter-group-label">Type / Cuisine</span>
+      <div class="pill-row" id="type-filters"></div>
+    </div>
+
+    <div class="filter-group">
+      <span class="filter-group-label">Vibe</span>
+      <div class="pill-row" id="vibe-filters"></div>
+    </div>
+  </div>
+
+  <p class="list-meta" id="list-meta">Loading the list&hellip;</p>
+  <div class="place-list" id="place-list"></div>
+
+  <footer>made with too many dinners &middot; edit <code>places.csv</code> to add your own</footer>
+</div>
+
+<script>
+(function () {
+  const state = {
+    types: new Set(),
+    vibes: new Set(),
+    search: ""
+  };
+
+  let places = [];
+
+  /*
+    Preferred display order for Type / Cuisine pills. Anything used in
+    places.csv that isn't listed here just gets appended alphabetically
+    at the end - so new tags never break, they just show up last.
+  */
+  const TYPE_ORDER = ["Chinese", "Hotpot", "Local", "Western", "Japanese", "Korean", "Cafe/Light bites", "Bar", "Other"];
+
+  /*
+    Minimal CSV parser: handles quoted fields, commas/quotes inside
+    quotes ("" for an escaped quote), and \n or \r\n line endings.
+  */
+  function parseCSV(text) {
+    const rows = [];
+    let row = [];
+    let field = "";
+    let inQuotes = false;
+    let i = 0;
+
+    while (i < text.length) {
+      const char = text[i];
+
+      if (inQuotes) {
+        if (char === '"') {
+          if (text[i + 1] === '"') { field += '"'; i += 2; continue; }
+          inQuotes = false; i++; continue;
+        }
+        field += char; i++; continue;
+      }
+
+      if (char === '"') { inQuotes = true; i++; continue; }
+      if (char === ",") { row.push(field); field = ""; i++; continue; }
+      if (char === "\r") { i++; continue; }
+      if (char === "\n") { row.push(field); rows.push(row); row = []; field = ""; i++; continue; }
+      field += char; i++;
+    }
+
+    if (field.length > 0 || row.length > 0) { row.push(field); rows.push(row); }
+    return rows.filter(r => r.some(cell => cell.trim().length > 0));
+  }
+
+  // "rating" stays in the schema (unused) so column positions don't
+  // shift for anyone already editing the sheet/CSV.
+  const CSV_COLUMNS = ["name", "type", "cuisine", "vibe", "rating", "note", "amapLink", "dianpingLink"];
+
+  function rowsToPlaces(rows) {
+    // first row is the header - skip it, columns are read by position
+    return rows.slice(1).map(row => {
+      const place = {};
+      CSV_COLUMNS.forEach((key, index) => {
+        place[key] = (row[index] || "").trim();
+      });
+      place.vibe = place.vibe
+        ? place.vibe.split(";").map(v => v.trim()).filter(Boolean)
+        : [];
+      return place;
+    });
+  }
+
+  function showLoadError() {
+    document.getElementById("list-meta").textContent = "";
+    const container = document.getElementById("place-list");
+    container.innerHTML = "";
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.innerHTML = "Couldn't load <code>places.csv</code>.<br><br>" +
+      "If you opened this HTML file directly (file://), browsers block that fetch. " +
+      "Run a quick local server instead, e.g. <code>npx serve</code> or " +
+      "<code>python3 -m http.server</code> in this folder, or just host it on " +
+      "GitHub Pages / Netlify / Vercel - it works fine there.";
+    container.appendChild(empty);
+  }
+
+  function uniqueValues(values) {
+    return Array.from(new Set(values.filter(Boolean)));
+  }
+
+  function getTypeCuisineOptions() {
+    const values = [];
+    places.forEach(p => {
+      if (p.type) values.push(p.type);
+      if (p.cuisine) values.push(p.cuisine);
+    });
+    return uniqueValues(values).sort((a, b) => {
+      const ia = TYPE_ORDER.indexOf(a);
+      const ib = TYPE_ORDER.indexOf(b);
+      if (ia === -1 && ib === -1) return a.localeCompare(b);
+      if (ia === -1) return 1;
+      if (ib === -1) return -1;
+      return ia - ib;
+    });
+  }
+
+  /*
+    Vibe chip colors, sampled from a reference painting (moss green,
+    deep pine, warm gold, terracotta, soft turquoise). Not place data -
+    if you add a new vibe value in places.csv that isn't listed here,
+    it still works, it just gets the next fallback color.
+  */
+  const vibeColors = {
+    "Date-ish": "#dfa37b",
+    "Something Fun": "#e0b84a",
+    "Late-Night Save": "#7fa88f",
+    "Brunch": "#c3d98a",
+    "Soft Afternoon": "#7ec9c4"
+  };
+  const fallbackColors = ["#dfa37b", "#e0b84a", "#7fa88f", "#c3d98a", "#7ec9c4"];
+
+  function colorForVibe(name, index) {
+    if (vibeColors[name]) return vibeColors[name];
+    return fallbackColors[index % fallbackColors.length];
+  }
+
+  function getVibeOptions() {
+    const values = [];
+    places.forEach(p => {
+      (p.vibe || []).forEach(v => v && values.push(v));
+    });
+    Object.keys(vibeColors).forEach(v => values.push(v));
+    return uniqueValues(values).sort((a, b) => a.localeCompare(b));
+  }
+
+  function renderTypeFilters() {
+    const container = document.getElementById("type-filters");
+    container.innerHTML = "";
+    getTypeCuisineOptions().forEach(value => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "pill";
+      btn.textContent = value;
+      btn.dataset.value = value;
+      btn.addEventListener("click", () => {
+        toggleSetValue(state.types, value);
+        btn.classList.toggle("active");
+        renderPlaces();
+      });
+      container.appendChild(btn);
+    });
+  }
+
+  function renderVibeFilters() {
+    const container = document.getElementById("vibe-filters");
+    container.innerHTML = "";
+    getVibeOptions().forEach((value, index) => {
+      const color = colorForVibe(value, index);
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "pill";
+      btn.textContent = value;
+      btn.dataset.value = value;
+      btn.style.background = color;
+      btn.style.borderColor = color;
+      btn.addEventListener("click", () => {
+        toggleSetValue(state.vibes, value);
+        const isActive = btn.classList.toggle("active");
+        // clear inline color so the .active rule (ink fill) can take over;
+        // restore it when the chip is deselected
+        btn.style.background = isActive ? "" : color;
+        btn.style.borderColor = isActive ? "" : color;
+      });
+      container.appendChild(btn);
+    });
+  }
+
+  function toggleSetValue(set, value) {
+    if (set.has(value)) set.delete(value);
+    else set.add(value);
+  }
+
+  function matchesPlace(place) {
+    if (state.types.size > 0) {
+      const placeValues = [place.type, place.cuisine].filter(Boolean);
+      const hit = placeValues.some(v => state.types.has(v));
+      if (!hit) return false;
+    }
+
+    if (state.vibes.size > 0) {
+      const placeVibes = place.vibe || [];
+      const hit = placeVibes.some(v => state.vibes.has(v));
+      if (!hit) return false;
+    }
+
+    if (state.search.trim().length > 0) {
+      const q = state.search.trim().toLowerCase();
+      const haystack = ((place.name || "") + " " + (place.note || "")).toLowerCase();
+      if (!haystack.includes(q)) return false;
+    }
+
+    return true;
+  }
+
+  function createLinkButton(label, url) {
+    const a = document.createElement("a");
+    a.className = "link-btn";
+    a.href = url;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.textContent = label;
+    return a;
+  }
+
+  function renderPlaceCard(place) {
+    const card = document.createElement("article");
+    card.className = "place-card";
+
+    const name = document.createElement("h2");
+    name.className = "place-name";
+    name.textContent = place.name || "Untitled place";
+    card.appendChild(name);
+
+    const tags = document.createElement("div");
+    tags.className = "place-tags";
+
+    [place.type, place.cuisine].filter(Boolean).forEach(v => {
+      const tag = document.createElement("span");
+      tag.className = "tag";
+      tag.textContent = v;
+      tags.appendChild(tag);
+    });
+
+    (place.vibe || []).filter(Boolean).forEach((v, i) => {
+      const tag = document.createElement("span");
+      tag.className = "tag tag-vibe";
+      tag.style.background = colorForVibe(v, i);
+      tag.textContent = v;
+      tags.appendChild(tag);
+    });
+
+    card.appendChild(tags);
+
+    if (place.note) {
+      const note = document.createElement("p");
+      note.className = "place-note editorial";
+      note.textContent = place.note;
+      card.appendChild(note);
+    }
+
+    const links = document.createElement("div");
+    links.className = "place-links";
+
+    if (place.amapLink) {
+      links.appendChild(createLinkButton("Amap ↗", place.amapLink));
+    }
+    if (place.dianpingLink) {
+      links.appendChild(createLinkButton("Dianping ↗", place.dianpingLink));
+    }
+
+    if (links.children.length > 0) {
+      card.appendChild(links);
+    }
+
+    return card;
+  }
+
+  function renderPlaces() {
+    const container = document.getElementById("place-list");
+    const meta = document.getElementById("list-meta");
+    container.innerHTML = "";
+
+    const filtered = places.filter(matchesPlace);
+
+    meta.textContent = filtered.length === places.length
+      ? `${places.length} place${places.length === 1 ? "" : "s"}`
+      : `${filtered.length} of ${places.length} places`;
+
+    if (filtered.length === 0) {
+      const empty = document.createElement("div");
+      empty.className = "empty-state";
+      empty.textContent = "Nothing matches yet — try clearing a filter.";
+      container.appendChild(empty);
+      return;
+    }
+
+    filtered.forEach(place => container.appendChild(renderPlaceCard(place)));
+  }
+
+  document.getElementById("search-input").addEventListener("input", (e) => {
+    state.search = e.target.value;
+    renderPlaces();
+  });
+
+  fetch("places.csv")
+    .then(res => {
+      if (!res.ok) throw new Error("CSV fetch failed: " + res.status);
+      return res.text();
+    })
+    .then(text => {
+      places = rowsToPlaces(parseCSV(text));
+      renderTypeFilters();
+      renderVibeFilters();
+      renderPlaces();
+    })
+    .catch(showLoadError);
+})();
+</script>
+
+</body>
+</html>
