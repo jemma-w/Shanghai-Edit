@@ -63,7 +63,7 @@
     font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: #6fae61;
     margin-bottom: 12px;
   }
 
@@ -72,7 +72,7 @@
     display: inline-block;
     width: 6px;
     height: 6px;
-    background: var(--accent);
+    background: #6fae61;
     border-radius: 50%;
   }
 
@@ -152,7 +152,7 @@
   .pill {
     display: inline-flex;
     align-items: center;
-    padding: 7px 15px;
+    padding: 7px 18px;
     border-radius: 999px;
     background: var(--card-bg);
     border: 1.5px solid var(--line);
@@ -245,7 +245,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 9px 14px;
+    padding: 6px 14px;
     border-radius: 3px;
     border: 1.5px solid var(--ink);
     background: transparent;
@@ -255,7 +255,7 @@
     font-weight: 700;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    min-height: 40px;
+    min-height: 32px;
   }
 
   .link-btn:active {
@@ -431,24 +431,38 @@
   }
 
   /*
-    Vibe chip colors, sampled from a reference painting (moss green,
-    deep pine, warm gold, terracotta, soft turquoise). Not place data -
-    if you add a new vibe value in places.csv that isn't listed here,
-    it still works, it just gets the next fallback color.
+    Preferred display order for Vibe chips. Anything used in places.csv
+    that isn't listed here just gets appended alphabetically at the end.
+  */
+  const VIBE_ORDER = ["Brunch", "Date-ish", "Soft Afternoon", "Something Fun", "Late-Night Save", "First Time in SH"];
+
+  /*
+    Vibe chip colors: a green ramp light-to-dark, except "First Time in SH"
+    which is a deliberate outline outlier (white fill, dark green text/border).
+    Not place data - if you add a new vibe value in places.csv that isn't
+    listed here, it still works, it just gets the next fallback color.
   */
   const vibeColors = {
-    "Date-ish": "#dfa37b",
-    "Something Fun": "#e0b84a",
-    "Late-Night Save": "#7fa88f",
-    "Brunch": "#c3d98a",
-    "Soft Afternoon": "#7ec9c4",
-    "First Time in SH": "#8fb8d9"
+    "Brunch": "#dcefd6",
+    "Date-ish": "#c3e2ba",
+    "Soft Afternoon": "#a8d29e",
+    "Something Fun": "#8cc17f",
+    "Late-Night Save": "#6fae61",
+    "First Time in SH": "#ffffff"
   };
-  const fallbackColors = ["#dfa37b", "#e0b84a", "#7fa88f", "#c3d98a", "#7ec9c4", "#8fb8d9"];
+  const fallbackColors = ["#dcefd6", "#c3e2ba", "#a8d29e", "#8cc17f", "#6fae61"];
 
   function colorForVibe(name, index) {
     if (vibeColors[name]) return vibeColors[name];
     return fallbackColors[index % fallbackColors.length];
+  }
+
+  function textColorForVibe(name) {
+    return name === "First Time in SH" ? "#3d6e33" : "";
+  }
+
+  function borderColorForVibe(name, color) {
+    return name === "First Time in SH" ? textColorForVibe(name) : color;
   }
 
   function getVibeOptions() {
@@ -457,7 +471,14 @@
       (p.vibe || []).forEach(v => v && values.push(v));
     });
     Object.keys(vibeColors).forEach(v => values.push(v));
-    return uniqueValues(values).sort((a, b) => a.localeCompare(b));
+    return uniqueValues(values).sort((a, b) => {
+      const ia = VIBE_ORDER.indexOf(a);
+      const ib = VIBE_ORDER.indexOf(b);
+      if (ia === -1 && ib === -1) return a.localeCompare(b);
+      if (ia === -1) return 1;
+      if (ib === -1) return -1;
+      return ia - ib;
+    });
   }
 
   function renderTypeFilters() {
@@ -483,20 +504,23 @@
     container.innerHTML = "";
     getVibeOptions().forEach((value, index) => {
       const color = colorForVibe(value, index);
+      const textColor = textColorForVibe(value);
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "pill";
       btn.textContent = value;
       btn.dataset.value = value;
+      const borderColor = borderColorForVibe(value, color);
       btn.style.background = color;
-      btn.style.borderColor = color;
+      btn.style.borderColor = borderColor;
+      if (textColor) btn.style.color = textColor;
       btn.addEventListener("click", () => {
         toggleSetValue(state.vibes, value);
         const isActive = btn.classList.toggle("active");
         // clear inline color so the .active rule (ink fill) can take over;
         // restore it when the chip is deselected
         btn.style.background = isActive ? "" : color;
-        btn.style.borderColor = isActive ? "" : color;
+        btn.style.borderColor = isActive ? "" : borderColor;
       });
       container.appendChild(btn);
     });
@@ -561,7 +585,11 @@
     (place.vibe || []).filter(Boolean).forEach((v, i) => {
       const tag = document.createElement("span");
       tag.className = "tag tag-vibe";
-      tag.style.background = colorForVibe(v, i);
+      const vColor = colorForVibe(v, i);
+      tag.style.background = vColor;
+      tag.style.border = "1px solid " + borderColorForVibe(v, vColor);
+      const textColor = textColorForVibe(v);
+      if (textColor) tag.style.color = textColor;
       tag.textContent = v;
       tags.appendChild(tag);
     });
