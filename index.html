@@ -434,7 +434,7 @@
     Preferred display order for Vibe chips. Anything used in places.csv
     that isn't listed here just gets appended alphabetically at the end.
   */
-  const VIBE_ORDER = ["Brunch", "Date-ish", "Soft Afternoon", "Something Fun", "Late-Night Save", "First Time in SH"];
+  const VIBE_ORDER = ["Brunch", "Date-ish", "Soft Afternoon", "Something Fun", "Down-to-earth", "Late-Night Save", "First Time in SH"];
 
   /*
     Vibe chip colors: a green ramp light-to-dark, except "First Time in SH"
@@ -444,13 +444,14 @@
   */
   const vibeColors = {
     "Brunch": "#dcefd6",
-    "Date-ish": "#c3e2ba",
-    "Soft Afternoon": "#a8d29e",
-    "Something Fun": "#8cc17f",
+    "Date-ish": "#c6e2bf",
+    "Soft Afternoon": "#b0d5a7",
+    "Something Fun": "#9bc890",
+    "Down-to-earth": "#85bb78",
     "Late-Night Save": "#6fae61",
     "First Time in SH": "#ffffff"
   };
-  const fallbackColors = ["#dcefd6", "#c3e2ba", "#a8d29e", "#8cc17f", "#6fae61"];
+  const fallbackColors = ["#dcefd6", "#c6e2bf", "#b0d5a7", "#9bc890", "#85bb78", "#6fae61"];
 
   function colorForVibe(name, index) {
     if (vibeColors[name]) return vibeColors[name];
