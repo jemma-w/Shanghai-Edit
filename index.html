@@ -343,8 +343,7 @@
     places.csv that isn't listed here just gets appended alphabetically
     at the end - so new tags never break, they just show up last.
   */
-  const TYPE_ORDER = ["Chinese", "Hotpot", "Local", "Western", "Japanese", "Cafe/Light bites", "Bar", "Other"];
-
+const TYPE_ORDER = ["Chinese", "Hotpot", "Local", "Bar", "Western", "Japanese", "Cafe/Light bites", "Other"];
   /*
     Minimal CSV parser: handles quoted fields, commas/quotes inside
     quotes ("" for an escaped quote), and \n or \r\n line endings.
@@ -434,7 +433,7 @@
     Preferred display order for Vibe chips. Anything used in places.csv
     that isn't listed here just gets appended alphabetically at the end.
   */
-  const VIBE_ORDER = ["Brunch", "Date-ish", "Soft afternoon", "Something fun", "Down-to-earth", "Late-night save", "Must try if first time in SH", "Fine dining"];
+  const VIBE_ORDER = ["Brunch", "Date-ish", "Soft afternoon", "Something fun", "Down-to-earth", "Must try if first time in SH", "Fine dining"];
 
   /*
     Vibe chip colors: a green ramp light-to-dark, except "Must try if first time in SH"
@@ -443,16 +442,15 @@
     Not place data - if you add a new vibe value in places.csv that isn't
     listed here, it still works, it just gets the next fallback color.
   */
-  const vibeColors = {
-    "Brunch": "#dcefd6",
-    "Date-ish": "#c6e2bf",
-    "Soft afternoon": "#b0d5a7",
-    "Something fun": "#9bc890",
-    "Down-to-earth": "#85bb78",
-    "Late-night save": "#6fae61",
-    "Fine dining": "#e8c874",
-    "Must try if first time in SH": "#ffffff"
-  };
+const vibeColors = {
+  "Brunch": "#dcefd6",
+  "Date-ish": "#c6e2bf",
+  "Soft afternoon": "#b0d5a7",
+  "Something fun": "#9bc890",
+  "Down-to-earth": "#85bb78",
+  "Fine dining": "#e8c874",
+  "Must try if first time in SH": "#ffffff"
+};
   const fallbackColors = ["#dcefd6", "#c6e2bf", "#b0d5a7", "#9bc890", "#85bb78", "#6fae61"];
 
   function colorForVibe(name, index) {
