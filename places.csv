@@ -1,12 +1,10 @@
 name,type,cuisine,vibe (separate multiple with ;),rating (unused - left blank),note,amapLink,dianpingLink,igLink,websiteLink
 Lao Ji Shi (老吉士) - AKA Old Jess,Local,,First time in SH,,"Authentic Shanghainese food, braised pork and drunken chicken. Mutiple locations across the city",https://surl.amap.com/24MU0bQT6Jk,https://m.dianping.com/shopinfo/GaJ4U54e82LqIPMe?msource=Appshare2021&utm_source=shop_share&shoptype=10&shopcategoryid=34256&cityid=1&isoversea=0,,
 Ling Long (玲珑) ,Local,,Fine dining,,1 Michelin Star. Creative exploration of regional Chinese terroir,,,https://www.instagram.com/restaurant_linglong/,https://guide.michelin.com/sg/en/shanghai-municipality/shanghai/restaurant/ling-long-1209951
-"Xihe Tavern on The Bund
-",Chinese,,Something fun; Date-ish,,Modern Chinese fusion with a collection of signature Rice Wine,,,,https://www.tripadvisor.com.sg/Restaurant_Review-g308272-d33995558-Reviews-Xihe_Tavern_on_The_Bund-Shanghai.html
+"Xihe Tavern on The Bund",Chinese,,Something fun; Date-ish,,Modern Chinese fusion with a collection of signature Rice Wine,,,,https://www.tripadvisor.com.sg/Restaurant_Review-g308272-d33995558-Reviews-Xihe_Tavern_on_The_Bund-Shanghai.html
 Xin Rong Ji (新荣记),Chinese,,Fine dining,,"Taizhou cuisine, seafood. Braised Yellow Croaker with Handmade Rice Cakes  is a must-try",,,,https://guide.michelin.com/sg/en/shanghai-municipality/shanghai/restaurant/xin-rong-ji-west-nanjing-road
 Cuivre by Michael Wendling,Western,,Date-ish,,A long-standing French restaurant in SH. Salade de Chèvre Frais is a must-try ,,,https://www.instagram.com/cuivre_restaurant/,https://guide.michelin.com/sg/en/shanghai-municipality/shanghai/restaurant/cuivre
-"YongFoo Élite (雍福会)
-",Local,,Fine dining,,"1 Michelin Star, traditional Shanghainese dishes at the historic building; old Shanghai charm",,,https://www.instagram.com/yongfooelite/?hl=en,https://guide.michelin.com/sg/en/shanghai-municipality/shanghai/restaurant/yongfoo-elite
+"YongFoo Élite (雍福会)",Local,,Fine dining,,"1 Michelin Star, traditional Shanghainese dishes at the historic building; old Shanghai charm",,,https://www.instagram.com/yongfooelite/?hl=en,https://guide.michelin.com/sg/en/shanghai-municipality/shanghai/restaurant/yongfoo-elite
 Fu 1088 (福 1088),Local,,Fine dining,,"1 Michelin Star, traditional Shanghainese dishes at the historic building; old Shanghai charm",,,,https://guide.michelin.com/sg/en/shanghai-municipality/shanghai/restaurant/fu-1088
 Hongjie Hotpot (鸿姐老火锅),Hotpot,,Down-to-earth,,"Chongqing style. Spicy, aala. Mutiple locations across the city. Flagship: No. 102, Bldg 5, 1394 West Yan’an Road",https://maps.apple.com/place?place-id=H2710I3F93EE0B0A7C9&address=Yan%27an+West+Road+No.1394+Hongjie+Old+Hot+Pot%2C+Changning%2C+Shanghai+China&coordinate=31.209517%2C121.423902&name=Hongjie+Old+Hot+Pot+%28Shanghai+Flagship+Store%29&_provider=57879,,,
 South Gate Hot Pot (南门涮肉),Hotpot,,Down-to-earth,,"Beijing Style, specializes in hand-cut lamb and beef. 4 locations in SH",https://surl.amap.com/ACJhEi152VE,,,
@@ -17,37 +15,32 @@ Mona,Western,,,,Chic Mediterranean-Asian fusion. Mapo tofu noodle with bafullo c
 Peking Chamber (四季民福),Chinese,,,,"Peking Duck. Originally from Beijing, a solid choice for anyone craving authentic Beijing flavors in Shanghai. Mutiple locations across the city",,,,https://www.smartshanghai.com/venue/34339/peking_chamber
 Mercado 505,Western,,Date-ish,,My favorite Spanish resturant in town,,https://m.dianping.com/shopinfo/G2RI8XSicQ5c8LkB?msource=Appshare2021&utm_source=shop_share&shoptype=10&shopcategoryid=233&cityid=1&isoversea=0,,https://guide.michelin.com/sg/en/shanghai-municipality/shanghai/restaurant/mercado-505
 8 ½ Otto e Mezzo Bombana,Western,,Date-ish; Fine dining,,Michelin Star. Italian restauran at rockbund,,,,https://www.ottoemezzobombana.com/branch/shanghai/
-San Bai Bei (三佰杯),"Chinese;Local",,Something fun,,"Specializes in Ningbo cuisine, namely seafood. Reservation is a must",,,,https://rachelgouk.com/san-bai-bei-brings-shanghai-closer-to-ningbo/
+San Bai Bei (三佰杯),"Chinese",,Something fun,,"Specializes in Ningbo cuisine, namely seafood. Reservation is a must",,,,https://rachelgouk.com/san-bai-bei-brings-shanghai-closer-to-ningbo/
 Bar A Vin,Western,,Date-ish,,"cozy wine bar and restaurant on Jiashan Road. The space is unique, spread across two floors of an old narrow lane house. ",,,,https://rachelgouk.com/listings/bar-a-vin/
 Colca,Western,,Brunch; Soft afternoon,,"all-occasion restaurant, Latin American restaurant (mostly Peruvian)",,,,https://rachelgouk.com/shanghai-brunch-colca/
 Chez JOJO ,Western,,Brunch; Date-ish; Soft afternoon,,"Cozy, family-run French bistro. 3 outlets in SH. My go-to is the Fumin Road one - got a lovely terrace.",,,,https://www.smartshanghai.com/venue/23577/chez_jojo_wine_and_terrace_fumin_lu
 Alimentari Grande,Cafe/Light bites,,Brunch; Soft afternoon,,Shanghai homegrown Italian restaurant and deli chain; Mutiple locations across the city,,,,https://rachelgouk.com/listings/alimentari-grande/
 Yao Ji Iron Pot Stew (姚稷大铁锅) (Changping Road),Chinese,,Down-to-earth,,"Tie Guo Dun (铁锅炖), or “Iron Pot Stew,” a traditional cooking method from China’s northeastern Dongbei region; No english menu",,,,https://rachelgouk.com/listings/yao-ji-iron-pot-stew-changping-road/
-"Kong Yi Ji (孔乙己)  
-",Chinese,,Down-to-earth,,traditional Chinese restaurant serving up Shaoxing cuisine. ,,,,https://rachelgouk.com/listings/kong-yi-ji-changning/
-Tsutaya Books,Other; Cafe/Light bites,,Soft afternoon,,"My favorite book store, located in Columbia Circle - a historic lifestyle and cultural landmark ",,,,https://www.smartshanghai.com/venue/21959/tsutaya-books-yanan-xi-lu
+"Kong Yi Ji (孔乙己)",Chinese,,Down-to-earth,,traditional Chinese restaurant serving up Shaoxing cuisine. ,,,,https://rachelgouk.com/listings/kong-yi-ji-changning/
+Tsutaya Books,Other,,Soft afternoon,,"My favorite book store, located in Columbia Circle - a historic lifestyle and cultural landmark ",,,,https://www.smartshanghai.com/venue/21959/tsutaya-books-yanan-xi-lu
 RAW Eatery & Wood Grill,Western,,,,Steaks and seafood,,,https://www.instagram.com/raw_eateryandwoodgrill/,https://rachelgouk.com/listings/raw-eatery-wood-grill/
 5SENSES Wukang Garden Cafe & Restaurant,Cafe/Light bites,,Soft afternoon,,Art-filled garden restaurant and café space located in French Concession area,,,https://surl.amap.com/jxOBK8i1AeB3,
 COZY Music Lab,Other,,,,Live house,,,https://www.instagram.com/popular/cozy-music-lab-shanghai/,
- Looper by Ounce,Bar,,Something fun,,"It features an elaborate miniature railway world - Looper Tow, complete with custom model landscapes and hundreds of tiny residents.",,,https://www.instagram.com/looperbyounce_china/?hl=en,https://www.instagram.com/p/DPJOIZZkeZ1/?img_index=2
+Looper by Ounce,Bar,,Something fun,,"It features an elaborate miniature railway world - Looper Tow, complete with custom model landscapes and hundreds of tiny residents.",,,https://www.instagram.com/looperbyounce_china/?hl=en,https://www.instagram.com/p/DPJOIZZkeZ1/?img_index=2
 Paal,Bar,,,,Minimalist bar. My new favorite.,,,https://www.instagram.com/paal_shanghai/?hl=en,https://www.theworlds50best.com/discovery/Establishments/China/Shanghai/Paal.html
 Gallows Humor,Bar,,,,Run by the same founders behind Paal. Minimalist bar,,,,https://rachelgouk.com/listings/gallows-humor/
 Speak Low,Bar,,,,"Iconic speak easy bar in SH, multi-level playland ",,,,https://www.theworlds50best.com/discovery/Establishments/China/Shanghai/Speak-Low.html
-"J.Boroski 
-",Bar,,Something fun,,"No menu, tailors each drink to the guest’s preference; dark, candlelit spaces decorated with preserved bugs",,,https://www.instagram.com/jboroskishanghai/?hl=en,https://rachelgouk.com/shanghai-cocktail-bar-j-boroski/
+"J.Boroski",Bar,,Something fun,,"No menu, tailors each drink to the guest’s preference; dark, candlelit spaces decorated with preserved bugs",,,https://www.instagram.com/jboroskishanghai/?hl=en,https://rachelgouk.com/shanghai-cocktail-bar-j-boroski/
 Root Down,Bar,,,,Plays vinyl,,,,https://rachelgouk.com/root-down-cocktails-vinyl-great-ambience/
 Union Trading Company,Bar,,,,Long-running cocktail bar in SH,,,,https://www.theworlds50best.com/discovery/Establishments/China/Shanghai/Union-Trading-Company.html
-Pudao wines ,Bar,,Soft afternoon,,"Wine bar/wine shop; perfect for grabbing a bottle and chilling on the Rooftop Terrace
-",,,,https://pudaowines.com/en/about-pudao/
+Pudao wines ,Bar,,Soft afternoon,,"Wine bar/wine shop; perfect for grabbing a bottle and chilling on the Rooftop Terrace",,,,https://pudaowines.com/en/about-pudao/
 Justgrapes ,Bar,,Soft afternoon,,"Wine bar, go-to spot to sip",,,,https://justgrapes.cn/
-"BOTANIC LAB (植物研究所)
-",Bar,,,,,,,,https://www.trip.com/restaurant/china/shanghai/detail/restaurant-143190608/
+"BOTANIC LAB (植物研究所)",Bar,,,,,,,,https://www.trip.com/restaurant/china/shanghai/detail/restaurant-143190608/
 Penicillin Shanghai,Bar,,,,Reopened in 2026; eco-conscious bar,,,,https://penicillinbarsha.com
 Pony Up,Bar,,,,Neighborhood bar ,,,,https://rachelgouk.com/listings/pony-up/
 Dead Poet,Bar,,,,"If you're in the neighborhood, it's worth stopping by, but not travel for",,,,https://rachelgouk.com/listings/dead-poet/
 Suzu Bar,Bar,,,,Japanese style,,,https://www.instagram.com/suzu_bar/,https://www.theworlds50best.com/discovery/Establishments/China/Shanghai/Suzu-Bar.html
-"SOMETHING dining & bar
-",Cafe/Light bites,,Brunch,,Greenhouse-style ,,,,https://www.tripadvisor.com.sg/Restaurant_Review-g308272-d26440743-Reviews-SOMETHING_dining_bar-Shanghai.html
+"SOMETHING dining & bar",Cafe/Light bites,,Brunch,,Greenhouse-style ,,,,https://www.tripadvisor.com.sg/Restaurant_Review-g308272-d26440743-Reviews-SOMETHING_dining_bar-Shanghai.html
 Ginger ,Chinese,,,,Modern Asian Bistro,,,,https://rachelgouk.com/ginger-modern-asian-bistro-shanghai-institution/
 Bar Vena ,Bar,,,,,,,,https://english.shanghai.gov.cn/en-FirstStores/20260128/7272bffab0814ae6adf3cb19cf4f578a.html
 Bar Blanc,Bar,,,,,,,,https://www.smartshanghai.com/venue/34069/bar_blanc
