@@ -1,10 +1,25 @@
-"name","type","cuisine","vibe (separate multiple with ;)","rating (unused - left blank)","note","amapLink","dianpingLink"
-"Laojishi(老吉士)","Local","","Late-Night Save;Something Fun","","Open till 2am, mala broth strong enough to fix a bad day. Bring wet wipes.",https://surl.amap.com/24MU0bQT6Jk,"https://m.dianping.com/shopinfo/GaJ4U54e82LqIPMe?msource=Appshare2021&utm_source=shop_share&shoptype=10&shopcategoryid=34256&cityid=1&isoversea=0"
-"Char Bar","Bar","","Date-ish;Something Fun","","Tiny, loud, and the bartender remembers your order after one visit.","https://www.amap.com/search?query=Char%20Bar%20Shanghai",""
-"8 Seats","Japanese","","Date-ish","","Omakase counter, only eight seats — book two weeks out or don't bother.","https://www.amap.com/search?query=8%20Seats%20Shanghai","https://www.dianping.com/search/keyword/1/0_8%20Seats"
-"Local 42","Local","","Soft Afternoon","","Neighborhood joint, no menu in English, always something good happening on the stove.","https://www.amap.com/search?query=Local%2042%20Shanghai",""
-"Sunday Kitchen","Cafe/Light bites","","Brunch;Soft Afternoon","","Eggs till 3pm and a corner table that's basically mine now.","https://www.amap.com/search?query=Sunday%20Kitchen%20Shanghai","https://www.dianping.com/search/keyword/1/0_Sunday%20Kitchen"
-"Trattoria Bassa","Western","","Date-ish","","Candlelight and a wine list longer than the menu. Save for the second date.","","https://www.dianping.com/search/keyword/1/0_Trattoria%20Bassa"
-"Golden Dim Sum","Chinese","","Brunch","","Dim sum cart still does the rounds. Go hungry, go early, go on a Sunday.","https://www.amap.com/search?query=Golden%20Dim%20Sum%20Shanghai","https://www.dianping.com/search/keyword/1/0_Golden%20Dim%20Sum"
-"The Backroom","Other","","Something Fun","","Can't explain the menu, don't try. Just order the thing with the candle in it.","https://www.amap.com/search?query=The%20Backroom%20Shanghai","https://www.dianping.com/search/keyword/1/0_The%20Backroom"
-"Old Wang's Noodles","Local","","Down-to-earth","","Six stools, one wok, best noodles on the block. Cash only.","https://www.amap.com/search?query=Old%20Wang%27s%20Noodles%20Shanghai","https://www.dianping.com/search/keyword/1/0_Old%20Wang%27s%20Noodles"
+name,type,cuisine,vibe (separate multiple with ;),rating (unused - left blank),note,amapLink,dianpingLink,igLink,websiteLink
+Laojishi(老吉士),Local,,First Time in SH,,,https://surl.amap.com/24MU0bQT6Jk,https://m.dianping.com/shopinfo/GaJ4U54e82LqIPMe?msource=Appshare2021&utm_source=shop_share&shoptype=10&shopcategoryid=34256&cityid=1&isoversea=0,,
+Hongjie Hotpot (鸿姐老火锅),hotpot,,,,,,,,
+Cuivre by Michael Wendling,Western,,Date-ish,,"a long-standing French restaurant in Shanghai, helmed by chef Michael Wendling. Classic French flavors with a modern twist in a rustic setting.",,,https://www.instagram.com/cuivre_restaurant/,https://guide.michelin.com/sg/en/shanghai-municipality/shanghai/restaurant/cuivre
+Henjiuyiqian (很久以前羊肉串) ,Chinese,,"Late-night save, Down-to-earth",,,,,,
+ Peking Chamber (四季民福),Chinese,,,,"Peking Duck. Originally from Beijing, a solid choice for anyone craving authentic Beijing flavors in Shanghai.",,,,https://www.smartshanghai.com/venue/34339/peking_chamber
+Ling Long (玲珑) ,Local,,,,"1 michille star, fine dining in local cusine ",,,,https://guide.michelin.com/sg/en/shanghai-municipality/shanghai/restaurant/ling-long-1209951
+"YongFoo Élite (雍福会)
+",Local,,,,"1 michille star,",,,https://www.instagram.com/yongfooelite/?hl=en,https://guide.michelin.com/sg/en/shanghai-municipality/shanghai/restaurant/ling-long-1209951
+Fu 1015 (福 1015),Local,,,,"1 michille star,",,,,https://guide.michelin.com/sg/en/shanghai-municipality/shanghai/restaurant/fu-1015
+Mercado 505,Western,,Date-ish,,The most authentic Spanish meal ,,,,https://guide.michelin.com/sg/en/shanghai-municipality/shanghai/restaurant/mercado-505
+8 ½ Otto e Mezzo Bombana,Western,,Date-ish,,,,,,https://guide.michelin.com/sg/en/shanghai-municipality/shanghai/restaurant/8-%C2%BD-otto-e-mezzo-bombana
+"Xihe Tavern on The Bund
+",Chinese,,"Something Fun, Date-ish",,signature Rice Wine,,,,https://www.tripadvisor.com.sg/Restaurant_Review-g308272-d33995558-Reviews-Xihe_Tavern_on_The_Bund-Shanghai.html
+San Bai Bei (三佰杯),"Chinese, Local",,Something Fun,,,,,,https://rachelgouk.com/san-bai-bei-brings-shanghai-closer-to-ningbo/
+Bar A Vin,Western,,Date-ish,,"cozy wine bar and restaurant on Jiashan Road. The space is unique, spread across two floors of an old narrow lane house. ",,,,https://rachelgouk.com/listings/bar-a-vin/
+Villa Le Bec,Western,,Date-ish,,This multi-concept restaurant by French celeb chef Nicolas le Bec occupies a century-old villa on tree-lined Xinhua Lu. ,,,,
+Colca,Western,,"Brunch, Soft Afternoon",,"all-occasion restaurant, Latin American restaurant (mostly Peruvian ",,,,https://rachelgouk.com/shanghai-brunch-colca/
+Chez JOJO ,Western,,"Brunch, Date-ish, Soft Afternoon",,love the terrace,,,,https://www.smartshanghai.com/venue/23577/chez_jojo_wine_and_terrace_fumin_lu
+Root Down,Bar,,,,,,,,https://rachelgouk.com/root-down-cocktails-vinyl-great-ambience/
+Yao Ji Iron Pot Stew (姚稷大铁锅) (Changping Road),Chinese,,Down-to-earth,,"Tie Guo Dun (铁锅炖), or “Iron Pot Stew,” a traditional cooking method from China’s northeastern Dongbei region.",,,,https://rachelgouk.com/listings/yao-ji-iron-pot-stew-changping-road/
+"Kong Yi Ji (孔乙己)  
+",Chinese,,Down-to-earth,,Kong Yi Ji is a Chinese restaurant in Shanghai serving Shaoxing cuisine. ,,,,
+Pony Up,Bar,,,,,,,,https://rachelgouk.com/listings/pony-up/
+RAW Eatery & Wood Grill,,,,,,,,,https://rachelgouk.com/listings/raw-eatery-wood-grill/
