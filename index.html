@@ -434,10 +434,10 @@
     Preferred display order for Vibe chips. Anything used in places.csv
     that isn't listed here just gets appended alphabetically at the end.
   */
-  const VIBE_ORDER = ["Brunch", "Date-ish", "Soft afternoon", "Something fun", "Down-to-earth", "Late-night save", "First time in SH", "Fine dining"];
+  const VIBE_ORDER = ["Brunch", "Date-ish", "Soft afternoon", "Something fun", "Down-to-earth", "Late-night save", "Must try if first time in SH", "Fine dining"];
 
   /*
-    Vibe chip colors: a green ramp light-to-dark, except "First time in SH"
+    Vibe chip colors: a green ramp light-to-dark, except "Must try if first time in SH"
     which is a deliberate outline outlier (white fill, dark green text/border),
     and "Fine dining" which gets a gold/champagne accent.
     Not place data - if you add a new vibe value in places.csv that isn't
@@ -451,7 +451,7 @@
     "Down-to-earth": "#85bb78",
     "Late-night save": "#6fae61",
     "Fine dining": "#e8c874",
-    "First time in SH": "#ffffff"
+    "Must try if first time in SH": "#ffffff"
   };
   const fallbackColors = ["#dcefd6", "#c6e2bf", "#b0d5a7", "#9bc890", "#85bb78", "#6fae61"];
 
@@ -461,11 +461,11 @@
   }
 
   function textColorForVibe(name) {
-    return name === "First time in SH" ? "#3d6e33" : "";
+    return name === "Must try if first time in SH" ? "#3d6e33" : "";
   }
 
   function borderColorForVibe(name, color) {
-    return name === "First time in SH" ? textColorForVibe(name) : color;
+    return name === "Must try if first time in SH" ? textColorForVibe(name) : color;
   }
 
   function getVibeOptions() {
