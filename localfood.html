@@ -110,13 +110,6 @@
     color: var(--paper);
   }
 
-  .list-meta {
-    font-size: 12px;
-    letter-spacing: 0.04em;
-    color: var(--ink-soft);
-    margin: 0 4px 12px;
-  }
-
   .food-list {
     display: flex;
     flex-direction: column;
@@ -156,6 +149,12 @@
     color: var(--ink-soft);
   }
 
+  .food-address {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 0 0 8px;
+  }
+
   .food-note {
     font-size: 15.5px;
     color: var(--ink);
@@ -187,7 +186,6 @@
     <a class="back-link" href="index.html">&larr; 返回指南</a>
   </header>
 
-  <p class="list-meta" id="list-meta">加载中&hellip;</p>
   <div class="food-list" id="food-list"></div>
 </div>
 
@@ -223,7 +221,6 @@
   }
 
   function showLoadError() {
-    document.getElementById("list-meta").textContent = "";
     const container = document.getElementById("food-list");
     container.innerHTML = "";
     const empty = document.createElement("div");
@@ -255,6 +252,13 @@
 
     card.appendChild(nameRow);
 
+    if (item.address) {
+      const address = document.createElement("p");
+      address.className = "food-address";
+      address.textContent = item.address;
+      card.appendChild(address);
+    }
+
     if (item.note) {
       const note = document.createElement("p");
       note.className = "food-note editorial";
@@ -275,10 +279,9 @@
       const items = rows.slice(1).map(row => ({
         name: (row[0] || "").trim(),
         city: (row[1] || "").trim(),
-        note: (row[2] || "").trim()
+        address: (row[2] || "").trim(),
+        note: (row[3] || "").trim()
       }));
-
-      document.getElementById("list-meta").textContent = `共 ${items.length} 道`;
 
       const container = document.getElementById("food-list");
       container.innerHTML = "";
