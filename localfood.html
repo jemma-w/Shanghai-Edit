@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>寻味三千里 — J's Shanghai Edit</title>
+<meta name="description" content="上海本地美食清单" />
+<style>
+  :root {
+    --paper: #ffffff;
+    --ink: #121212;
+    --ink-soft: #6e6a63;
+    --line: #e2dfd7;
+    --accent: #e31b23;
+    --pill-bg: #efece4;
+    --card-bg: #ffffff;
+    --shadow: rgba(18, 18, 18, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .editorial {
+    font-family: "STXingkai", "Xingkai SC", "行楷", serif;
+    font-style: normal;
+  }
+
+  a { color: inherit; }
+
+  .page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 18px 64px;
+    position: relative;
+  }
+
+  header {
+    padding: 40px 4px 22px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 24px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: #7a1e1e;
+    margin-bottom: 12px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #7a1e1e;
+    border-radius: 50%;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+    font-weight: 800;
+    margin: 0 0 10px;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+    text-wrap: balance;
+  }
+
+  .tagline {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    margin: 0 0 20px;
+    line-height: 1.8;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 18px;
+    border-radius: 999px;
+    background: var(--card-bg);
+    border: 1.5px solid var(--line);
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    box-shadow: 0 1px 2px var(--shadow);
+  }
+
+  .back-link:active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+
+  .list-meta {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    margin: 0 4px 12px;
+  }
+
+  .food-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .food-card {
+    background: var(--card-bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 18px 18px 16px;
+    box-shadow: 0 1px 2px var(--shadow);
+  }
+
+  .food-name-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .food-name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    margin: 0;
+  }
+
+  .food-city {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 700;
+    background: var(--pill-bg);
+    color: var(--ink-soft);
+  }
+
+  .food-note {
+    font-size: 15.5px;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 48px 16px;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+  }
+
+  @media (min-width: 640px) {
+    h1 { font-size: 2rem; }
+    .food-card { padding: 22px 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header>
+    <span class="eyebrow">烟火食</span>
+    <h1>寻味三千里</h1>
+    <p class="tagline editorial">闭门懒吃花猪肉，烧笋烹泉过一冬。</p>
+    <a class="back-link" href="index.html">&larr; 返回指南</a>
+  </header>
+
+  <p class="list-meta" id="list-meta">加载中&hellip;</p>
+  <div class="food-list" id="food-list"></div>
+</div>
+
+<script>
+(function () {
+  function parseCSV(text) {
+    const rows = [];
+    let row = [];
+    let field = "";
+    let inQuotes = false;
+    let i = 0;
+
+    while (i < text.length) {
+      const char = text[i];
+
+      if (inQuotes) {
+        if (char === '"') {
+          if (text[i + 1] === '"') { field += '"'; i += 2; continue; }
+          inQuotes = false; i++; continue;
+        }
+        field += char; i++; continue;
+      }
+
+      if (char === '"') { inQuotes = true; i++; continue; }
+      if (char === ",") { row.push(field); field = ""; i++; continue; }
+      if (char === "\r") { i++; continue; }
+      if (char === "\n") { row.push(field); rows.push(row); row = []; field = ""; i++; continue; }
+      field += char; i++;
+    }
+
+    if (field.length > 0 || row.length > 0) { row.push(field); rows.push(row); }
+    return rows.filter(r => r.some(cell => cell.trim().length > 0));
+  }
+
+  function showLoadError() {
+    document.getElementById("list-meta").textContent = "";
+    const container = document.getElementById("food-list");
+    container.innerHTML = "";
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.innerHTML = "无法加载 <code>localfood.csv</code>。<br><br>" +
+      "如果你是直接打开这个 HTML 文件（file://），浏览器会阻止读取。" +
+      "请部署到 GitHub Pages / Netlify / Vercel 上即可正常使用。";
+    container.appendChild(empty);
+  }
+
+  function renderFoodCard(item) {
+    const card = document.createElement("article");
+    card.className = "food-card";
+
+    const nameRow = document.createElement("div");
+    nameRow.className = "food-name-row";
+
+    const name = document.createElement("h2");
+    name.className = "food-name";
+    name.textContent = item.name || "未命名";
+    nameRow.appendChild(name);
+
+    if (item.city) {
+      const city = document.createElement("span");
+      city.className = "food-city";
+      city.textContent = item.city;
+      nameRow.appendChild(city);
+    }
+
+    card.appendChild(nameRow);
+
+    if (item.note) {
+      const note = document.createElement("p");
+      note.className = "food-note editorial";
+      note.textContent = item.note;
+      card.appendChild(note);
+    }
+
+    return card;
+  }
+
+  fetch("localfood.csv")
+    .then(res => {
+      if (!res.ok) throw new Error("CSV fetch failed: " + res.status);
+      return res.text();
+    })
+    .then(text => {
+      const rows = parseCSV(text);
+      const items = rows.slice(1).map(row => ({
+        name: (row[0] || "").trim(),
+        city: (row[1] || "").trim(),
+        note: (row[2] || "").trim()
+      }));
+
+      document.getElementById("list-meta").textContent = `共 ${items.length} 道`;
+
+      const container = document.getElementById("food-list");
+      container.innerHTML = "";
+      items.forEach(item => container.appendChild(renderFoodCard(item)));
+    })
+    .catch(showLoadError);
+})();
+</script>
+
+</body>
+</html>
